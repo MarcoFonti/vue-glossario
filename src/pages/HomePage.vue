@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <h1>Glossario</h1>
+    <h1>Glossario pippo</h1>
 
 </template>
 
