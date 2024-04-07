@@ -1,24 +1,30 @@
 <script>
 import WordsList from '../components/words/WordsList.vue';
 import AppAlert from '../components/AppAlert.vue';
-import { store } from '../data/store'
-
+import { store } from '../data/store';
 import axios from 'axios';
-const endpoint = 'http://localhost:8000/api/words/';
+import BasePagination from '../components/BasePagination.vue';
+const defaultEndpoint = 'http://localhost:8000/api/words/';
+
+
 export default {
     name: 'HomePage',
-    components: { WordsList, AppAlert },
+    components: { WordsList, AppAlert, BasePagination },
     data: () => ({
-        words: [],
+        words: {
+            data: [],
+            links: [],
+        },
         isAlertOpen: false,
         store
     }),
     methods: {
-        fetchWords() {
+        fetchWords(endpoint = defaultEndpoint) {
             store.isLoading = true
             axios.get(endpoint).then(res => {
-                this.words = res.data
                 this.isAlertOpen = false;
+                const {data, links} = res.data
+                this.words = { data, links };
             }).catch(err => {
                 console.error(err)
                 this.isAlertOpen = true;
@@ -37,8 +43,8 @@ export default {
     <h1>Glossario</h1>
     <AppAlert :show="isAlertOpen" @close="isAlertOpen = false" @retry="fetchWords" />
     <AppLoader v-if="store.isLoading" />
-    <WordsList v-else :words="words" />
-
+    <WordsList v-else :words="words.data" />
+    <BasePagination :links="words.links" @changePage="fetchWords" />
 </template>
 
 <style scoped></style>
