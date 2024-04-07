@@ -5,8 +5,6 @@ import { store } from '../data/store';
 import axios from 'axios';
 const endpoint = 'http://localhost:8000/api/words/';
 
-
-
 export default {
     name: 'WordDetailPage',
     components: { WordCard, AppLoader },
