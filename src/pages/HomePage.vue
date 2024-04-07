@@ -23,7 +23,7 @@ export default {
             store.isLoading = true
             axios.get(endpoint).then(res => {
                 this.isAlertOpen = false;
-                const {data, links} = res.data
+                const { data, links } = res.data
                 this.words = { data, links };
             }).catch(err => {
                 console.error(err)
@@ -41,9 +41,11 @@ export default {
 
 <template>
     <AppAlert :show="isAlertOpen" @close="isAlertOpen = false" @retry="fetchWords" />
+    <div class="d-flex justify-content-center flex-column align-items-center">
+        <BasePagination class="" :links="words.links" @changePage="fetchWords" />
+    </div>
     <AppLoader v-if="store.isLoading" />
     <WordsList v-else :words="words.data" />
-    <BasePagination :links="words.links" @changePage="fetchWords" />
 </template>
 
 <style scoped></style>

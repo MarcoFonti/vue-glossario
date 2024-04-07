@@ -29,14 +29,14 @@ export default {
 </script>
 
 <template>
-    <div class="card w-75 d-flex  my-3">
-        <div class="card-header d-flex align-items-center justify-content-between">
+    <div class="card w-100 d-flex  my-3">
+        <div class="card-header fw-semibold border-bottom-0 d-flex align-items-center justify-content-between">
             {{ word.title }}
-            <RouterLink v-if="!isDetail" class="btn btn-sm btn-primary"
-                :to="{ name: 'word-detail', params: { slug: word.slug } }">Vedi
+            <RouterLink v-if="!isDetail" class="btn show-button"
+                :to="{ name: 'word-detail', params: { slug: word.slug } }"><i class="fa-solid fa-eye"></i>
             </RouterLink>
         </div>
-        <div class="card-body clearfix">
+        <div class="card-body my-3 clearfix">
             <img v-if="word.image" :src="word.image" :alt="word.title" class="img-fluid float-start">
 
             <span class="badge ms-2" :style="{ backgroundColor: word.type?.color }">{{ word.type?.label }}</span>
@@ -50,9 +50,9 @@ export default {
                     :class="`text-bg-${tag.color}`">{{ tag.label }}</span>
             </div>
         </div>
-        <div class="card-footer d-flex align-items-center justify-content-between">
-            <address>By Team 4</address>
-            <small>Pubblicato il {{ pubblicationDate }}</small>
+        <div class="card-footer fw-semibold border-top-0 d-flex align-items-center justify-content-between py-3">
+            <p class="m-0">By Team 4</p>
+            <p class="m-0">Pubblicato il {{ pubblicationDate }}</p>
         </div>
     </div>
 
@@ -60,12 +60,16 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-    border: none;
+    border: 1px solid #258277;
 }
 
 .card-header,
 .card-footer {
-    background-color: #CBF3EB;
-    border: none;
+    background-color: #51a59b;
+
+    .show-button {
+        background-color: #454c81;
+        color: #fff;
+    }
 }
 </style>

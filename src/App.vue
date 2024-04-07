@@ -15,10 +15,14 @@ export default {
 
 <template>
   <AppHeader />
-  <main class="container my-4">
+  <main class="container my-2">
     <AppLoader v-if="store.isLoading" />
     <RouterView />
   </main>
 </template>
 
-<style scoped></style>
+<style>
+body {
+  font-family: "Lora", serif;
+}
+</style>

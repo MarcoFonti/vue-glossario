@@ -10,19 +10,31 @@ export default {
 </script>
 
 <template>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
+    <div class="w-100 mt-2 d-flex justify-content-end">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
 
-            <li v-for="link in links" :key="link.label" class="page-item"
-                :class="{ 'active': link.active, 'disabled ': !link.url }">
-                <button :disabled="!link.url" class="page-link" v-html="link.label"
-                    @click="$emit('change-page', link.url)"></button>
-            </li>
+                <li v-for="link in links" :key="link.label" class="page-item"
+                    :class="{ 'active': link.active, 'disabled ': !link.url }">
+                    <button :disabled="!link.url" class="page-link" v-html="link.label"
+                        @click="$emit('change-page', link.url)"></button>
+                </li>
 
-        </ul>
-    </nav>
+            </ul>
+        </nav>
+    </div>
 </template>
 
-<style>
-/*Css*/
+<style lang="scss" scoped>
+.active>.page-link {
+    background-color: #454c81;
+    border-color: #2a2f50;
+    color: #fff;
+
+}
+
+button.page-link {
+    font-weight: 500;
+    color: #000;
+}
 </style>
