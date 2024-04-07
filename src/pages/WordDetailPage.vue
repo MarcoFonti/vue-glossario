@@ -1,15 +1,18 @@
 <script>
 import WordCard from '../components/words/WordCard.vue';
 import AppLoader from '../components/AppLoader.vue';
-import { store } from '../data/store'
+import { store } from '../data/store';
 import axios from 'axios';
 const endpoint = 'http://localhost:8000/api/words/';
+
+
+
 export default {
     name: 'WordDetailPage',
     components: { WordCard, AppLoader },
     data: () => ({
         word: null,
-        store
+        store,
     }),
     methods: {
         getPost() {
@@ -18,7 +21,7 @@ export default {
                 .then(res => { this.word = res.data; })
                 .catch(err => { console.error(err) })
                 .then(() => { store.isLoading = false; })
-        }
+        },
     },
     created() {
         this.getPost();

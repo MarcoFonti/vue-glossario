@@ -6,9 +6,9 @@ export default {
 
 <template>
     <header>
-        <nav class="navbar navbar-expand-lg bg-success">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <RouterLink class="navbar-brand" :to="{ name: 'home' }">Glossario</RouterLink>
+                <RouterLink class="navbar-brand fs-2" :to="{ name: 'home' }">Glossario</RouterLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,7 @@ export default {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <RouterLink class="nav-link" :to="{ name: 'home' }">Home</RouterLink>
+                            <RouterLink class="nav-link mt-2" :to="{ name: 'home' }">Home</RouterLink>
                         </li>
                     </ul>
                 </div>

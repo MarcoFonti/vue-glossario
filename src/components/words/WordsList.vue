@@ -3,6 +3,10 @@
 import WordCard from './WordCard.vue';
 export default {
     name: 'WordsList',
+    data: () => ({
+        word: []
+    }),
+    computed
     components: { WordCard },
     props: { words: Array }
 };
