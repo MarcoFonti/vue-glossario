@@ -34,7 +34,6 @@ export default {
 </script>
 
 <template>
-    <h1>Glossario</h1>
     <AppAlert :show="isAlertOpen" @close="isAlertOpen = false" @retry="fetchWords" />
     <AppLoader v-if="store.isLoading" />
     <WordsList v-else :words="words" />

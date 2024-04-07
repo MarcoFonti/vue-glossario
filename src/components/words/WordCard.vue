@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-    <div class="card my-3">
+    <div class="card w-75 d-flex  my-3">
         <div class="card-header d-flex align-items-center justify-content-between">
             {{ word.title }}
             <RouterLink v-if="!isDetail" class="btn btn-sm btn-primary"
@@ -58,4 +58,14 @@ export default {
 
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.card {
+    border: none;
+}
+
+.card-header,
+.card-footer {
+    background-color: #CBF3EB;
+    border: none;
+}
+</style>
