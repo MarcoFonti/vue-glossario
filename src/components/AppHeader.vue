@@ -17,16 +17,6 @@ export default {
                 </button>
             </div>
         </nav>
-        <div class="d-flex justify-content-center mt-2">
-            <ul class="d-flex gap-3 mt-3 list-unstyled">
-                <li class="">
-                    <RouterLink class="nav-link mt-2 fs-4 fw-semibold" :to="{ name: 'home' }">Home</RouterLink>
-                </li>
-                <li class="">
-                    <RouterLink class="nav-link mt-2 fs-4 fw-semibold" :to="{ name: 'members' }">Membri</RouterLink>
-                </li>
-            </ul>
-        </div>
     </header>
 </template>
 
