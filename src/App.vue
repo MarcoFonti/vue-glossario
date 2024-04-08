@@ -4,10 +4,11 @@ import { store } from './data/store'
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 import AppLoader from './components/AppLoader.vue';
+import AppJumbotron from './components/AppJumbotron.vue';
 
 export default {
   name: 'Glossario',
-  components: { AppHeader, AppLoader, AppFooter },
+  components: { AppHeader, AppLoader, AppFooter, AppJumbotron },
   data: () => ({
     store
   }),
@@ -16,6 +17,7 @@ export default {
 
 <template>
   <AppHeader />
+  <AppJumbotron />
   <main class="container my-2">
     <AppLoader v-if="store.isLoading" />
     <RouterView />

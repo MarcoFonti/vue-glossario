@@ -31,7 +31,9 @@ export default {
 <template>
     <div class="card w-100 d-flex  my-3">
         <div class="card-header fw-semibold border-bottom-0 d-flex align-items-center justify-content-between">
-            {{ word.title }}
+            <h3>
+                {{ word.title }}
+            </h3>
             <RouterLink v-if="!isDetail" class="btn show-button"
                 :to="{ name: 'word-detail', params: { slug: word.slug } }"><i class="fa-solid fa-eye"></i>
             </RouterLink>
@@ -49,10 +51,6 @@ export default {
                 <span v-for="tag in word.tags" :key="tag.id" class="me-2 badge rounded-pill"
                     :class="`text-bg-${tag.color}`">{{ tag.label }}</span>
             </div>
-        </div>
-        <div class="card-footer fw-semibold border-top-0 d-flex align-items-center justify-content-between py-3">
-            <p class="m-0">By Team 4</p>
-            <p class="m-0">Pubblicato il {{ pubblicationDate }}</p>
         </div>
     </div>
 
